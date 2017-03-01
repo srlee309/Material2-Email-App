@@ -24,7 +24,7 @@ export class EmailService {
   }
 
   send(request: EmailRequest) {
-    return this.sendEmailThroughMailGun(request)
-      .catch(() => this.sendEmailThroughSendGrid(request));
+    return this.sendEmailThroughSendGrid(request)
+      .catch(() => this.sendEmailThroughMailGun(request));
   }
 }
