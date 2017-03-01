@@ -1,0 +1,25 @@
+<form [formGroup]="emailForm">
+    <ec-emails-input formControlName="to" placeholder="To"
+    [hintLabel]="getHintLabelForEmailError(emailForm.controls.to)">
+    </ec-emails-input>
+    <ec-emails-input formControlName="cc" placeholder="cc" [hintLabel]="getHintLabelForEmailError(emailForm.controls.cc)">
+    </ec-emails-input>
+    <ec-emails-input formControlName="bcc" placeholder="bcc" [hintLabel]="getHintLabelForEmailError(emailForm.controls.bcc)">
+    </ec-emails-input>
+    <md-input-container class="ec-email-input-container">
+        <input mdInput formControlName="subject" placeholder="Subject">
+        <md-hint *ngIf="isRequiredControlErrorThrown(emailForm.controls.subject)" class="ec-hint-label" align="end">Required</md-hint>
+    </md-input-container>
+    <md-input-container class="ec-email-input-container">
+        <textarea mdInput mdTextareaAutosize formControlName="text" [minRows]="5" placeholder="Body"></textarea>
+        <md-hint *ngIf="isRequiredControlErrorThrown(emailForm.controls.text)" class="ec-hint-label" align="end">Required</md-hint>
+    </md-input-container>
+</form>
+<div class="flex-container" fxLayout="row">
+    <div fxFlex></div>
+    <button md-fab md-button *ngIf="!emailForm.disabled" class="ec-submit-button" 
+        color="primary" (click)="onSubmit()">
+        <md-icon >send</md-icon>
+    </button>
+    <md-spinner *ngIf="emailForm.disabled"></md-spinner>
+</div>

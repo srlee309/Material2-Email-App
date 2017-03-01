@@ -1,0 +1,13 @@
+<md-input-container class="ec-email-input-container" floatPlaceholder="{{isEmpty() && !isInputFocused ? 'never': 'always'}}">
+  <md-chip-list>
+    <div class="flex-container" fxLayout="row" fxLayoutAlign="center center">
+      <ec-email-chip *ngFor="let enteredEmail of enteredEmails; let idx = index" 
+        [email]="enteredEmail" [disabled]="disabled" (remove)="removeEmailAtIndex(idx)">
+      </ec-email-chip>
+      <input [(ngModel)]="currentUserInput" #userInput
+        placeholder="{{placeholder}}" mdInput (keyup.enter)="addUserProvidedEmail()"
+        (focus)="setIsInputFocused(true)" (blur)="addUserProvidedEmail()">
+    </div>
+  </md-chip-list>
+  <md-hint *ngIf="hintLabel" align="end" class="ec-hint-label">{{hintLabel}}</md-hint>
+</md-input-container>

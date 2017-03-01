@@ -1,0 +1,14 @@
+.closable-chip {
+    outline: none;
+    margin-right: 8px;
+    &[disabled] {
+        opacity: 0.3;
+    }
+    &[disabled] .clickable-icon {
+        cursor: not-allowed;
+    }
+}
+
+.clickable-icon {
+    cursor: pointer;
+}
