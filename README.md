@@ -19,8 +19,16 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
+Run `ng build` to build the project. 
+Run `node server.js --mail-gun-key provideYourMailGunApiKeyHere --send-grid-key provideYourSendGridApiKeyHere`
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
+
+## Running with email server
+
+Run `ng build` to build the project. 
+Run `node server.js --mail-gun-key provideYourMailGunApiKeyHere --send-grid-key provideYourSendGridApiKeyHere`
+Navigate to `http://localhost:3000/`.
 
 ## Further help
 
