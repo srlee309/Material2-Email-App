@@ -1,4 +1,8 @@
-# EmailComposer
+# Description
+
+Personal project to learn about node, material 2 custom themes and custom form validators
+
+## EmailComposer
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.32.3.
 
