@@ -3,6 +3,7 @@ import { MaterialModule } from '@angular/material';
 import { EmailsInputComponent } from './emails-input.component';
 import { FormsModule } from '@angular/forms';
 import { EmailChipComponent } from '../email-chip/email-chip.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Email } from '../shared/email.model';
 import 'hammerjs';
 const testEmail: Email = { address: 'email@domain.com', isValid: true };
@@ -12,7 +13,7 @@ describe('EmailsInputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule, MaterialModule],
+      imports: [BrowserAnimationsModule, FormsModule, MaterialModule],
       declarations: [EmailChipComponent, EmailsInputComponent]
     })
       .compileComponents();

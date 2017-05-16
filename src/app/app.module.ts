@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 import { AppComponent } from './app.component';
 import { EmailsInputComponent } from './emails-input/emails-input.component';
@@ -23,6 +24,7 @@ import { DialogService } from './shared/dialog.service';
     NotificationMessageListDialogComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     FlexLayoutModule,
     FormsModule,

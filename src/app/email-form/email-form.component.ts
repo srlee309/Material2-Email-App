@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, AbstractControl, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import * as EmailsInputValidators from './emails-input.validators';
 import { EmailsValidationMessageTypes } from '../shared/emails-validation-message-types';
 import { EmailsValidationMessage } from '../shared/emails-validation-message.interface';
@@ -26,7 +26,7 @@ export class EmailFormComponent implements OnInit {
     });
   }
 
-  getHintLabelForEmailError(control: FormControl): string {
+  getHintLabelForEmailError(control: AbstractControl): string {
     if (control && control.errors) {
       if (control.errors[EmailsValidationMessageTypes.isEmailsInvalid.propertyName]) {
         return EmailsValidationMessageTypes.isEmailsInvalid.message;
@@ -68,11 +68,11 @@ export class EmailFormComponent implements OnInit {
     return validationMessages;
   }
 
-  isRequiredControlErrorThrown(control: FormControl): boolean {
+  isRequiredControlErrorThrown(control: AbstractControl): boolean {
     if (!control || !control.errors) {
       return false;
     }
-    return control.dirty && control.errors['required'];
+    return control.touched && control.errors['required'];
   }
 
   onSubmit(): void {

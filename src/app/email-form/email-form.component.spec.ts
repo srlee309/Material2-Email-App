@@ -8,6 +8,7 @@ import { EmailsInputComponent } from '../emails-input/emails-input.component';
 import { EmailChipComponent } from '../email-chip/email-chip.component';
 import { EmailService } from './email.service';
 import { DialogService } from '../shared/dialog.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 class EmailServiceStub {
   send() { return Observable.of(); }
@@ -25,6 +26,7 @@ describe('EmailFormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        BrowserAnimationsModule,
         FormsModule,
         MaterialModule,
         ReactiveFormsModule
@@ -96,15 +98,15 @@ describe('EmailFormComponent', () => {
       control.markAsDirty();
       expect(component.isRequiredControlErrorThrown(control)).toBe(false);
     });
-    it('should return false when control has required error but is not dirty', () => {
+    it('should return false when control has required error but is not touched', () => {
       const control = new FormControl();
       control.setErrors({ required: true });
       expect(component.isRequiredControlErrorThrown(control)).toBe(false);
     });
-    it('should return true when control has required error and is dirty', () => {
+    it('should return true when control has required error and is touched', () => {
       const control = new FormControl();
       control.setErrors({ required: true });
-      control.markAsDirty();
+      control.markAsTouched();
       expect(component.isRequiredControlErrorThrown(control)).toBe(true);
     });
   });
